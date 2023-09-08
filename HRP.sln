@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6DDCF459-07CC-406C-830E-38E7BE4A47D3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{BB6D64AA-A086-4962-8D5F-F3EDD03941D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Host", "Host", "{B3BD4C54-4BB2-4394-A396-E89BBA8EC46B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{0BFBF9F5-D5DF-4D70-AFF0-5DE59CF34163}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{73748E69-0EDC-4B62-A0DB-41E81128383C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B3BD4C54-4BB2-4394-A396-E89BBA8EC46B} = {6DDCF459-07CC-406C-830E-38E7BE4A47D3}
+		{0BFBF9F5-D5DF-4D70-AFF0-5DE59CF34163} = {6DDCF459-07CC-406C-830E-38E7BE4A47D3}
+		{73748E69-0EDC-4B62-A0DB-41E81128383C} = {6DDCF459-07CC-406C-830E-38E7BE4A47D3}
+	EndGlobalSection
+EndGlobal
