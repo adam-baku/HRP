@@ -1,0 +1,16 @@
+# directories
+**/bin/
+**/obj/
+**/out/
+**/.git/
+**/.vs/
+**/.vscode/
+**/.docker/
+**/build/
+
+# files
+**/*.md 
+**/.env
+**/.gitignore
+**/LICENSE
+**/global.json
