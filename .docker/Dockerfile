@@ -1,4 +1,10 @@
-FROM mcr.microsoft.com/dotnet/sdk:8.0-preview AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0.100-rc.1 AS build
+LABEL name="build-container"
+LABEL version="latest"
+
+# install ef tool
+RUN dotnet tool install --global dotnet-ef --version 8.0.0-rc.1.23419.6
+ENV PATH="$PATH:/root/.dotnet/tools"
 
 # install debugger
 WORKDIR /vsdbg
@@ -14,7 +20,8 @@ RUN dotnet build ./HRP.sln -o build
 
 
 
-FROM mcr.microsoft.com/dotnet/aspnet:8.0-preview AS runtime
+FROM mcr.microsoft.com/dotnet/aspnet:8.0.0-rc.1 AS runtime
+LABEL version="latest"
 
 # copy builded app and debugger
 WORKDIR /app

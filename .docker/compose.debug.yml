@@ -7,5 +7,42 @@ services:
       dockerfile: ./.docker/Dockerfile
     ports:
       - "8080:8080"
+    depends_on:
+      - mssql
     environment:
       ASPNETCORE_ENVIRONMENT: "Development"
+    networks:
+      - hrp_network
+
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: mssql
+    ports:
+      - "1433:1433"
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "P@ssw0rd"
+      MSSQL_PID: "Developer"
+    volumes:
+      - mssql_data:/var/opt/mssql
+    networks:
+      - hrp_network
+
+  dbeaver:
+    image: dbeaver/cloudbeaver:latest
+    container_name: dbeaver
+    ports:
+      - 8978:8978
+    depends_on:
+      - mssql
+    volumes:
+      - dbeaver_data:/opt/cloudbeaver/workspace
+    networks:
+      - hrp_network
+
+volumes:
+  mssql_data:
+  dbeaver_data:
+
+networks:
+  hrp_network:

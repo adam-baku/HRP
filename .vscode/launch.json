@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Docker Attach",
+            "type": "docker",
+            "request": "attach",
+            "platform": "netCore",
+            "containerName": "hrp",
+            "sourceFileMap": {
+                "/app": "${workspaceFolder}"
+            },
+            "preLaunchTask": "rebuild hrp service",
+            "netCore": {
+                "debuggerPath": "/remote_debugger/vsdbg"
+            }
+        }
+    ]
+}
