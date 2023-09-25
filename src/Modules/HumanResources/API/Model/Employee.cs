@@ -11,6 +11,17 @@ public class Employee
     public required EmploymentForm FormOfEmployment { get; set; }
     public required EmploymentOption OptionOfEmployment { get; set; }
 
-    // private DateTime createdAt;
-    // private DateTime updatedAt;
+    public void Update(Employee employee)
+    {
+        Name = employee.Name;
+        LastName = employee.LastName;
+        Department = employee.Department;
+        EmployedOn = employee.EmployedOn;
+        FormOfEmployment = employee.FormOfEmployment;
+        OptionOfEmployment = employee.OptionOfEmployment;
+
+        Address.Country = employee.Address.Country;
+        Address.City = employee.Address.City;
+        Address.Street = employee.Address.Street;
+    }
 }
