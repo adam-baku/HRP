@@ -3,13 +3,15 @@ using HRP.Shared;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
+[assembly: HrpModule<HRP.Module.HumanResources.Infrastructure.Module>]
+
 namespace HRP.Module.HumanResources.Infrastructure;
 
 public class Module : IModule
 {
     public void Configure(WebApplication application)
     {
-        throw new NotImplementedException();
+        //do nothing
     }
 
     public void Register(WebApplicationBuilder builder)
