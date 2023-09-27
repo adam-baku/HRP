@@ -2,9 +2,26 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "Rebuild hrp service",
+            "type": "docker-compose",
+            "dockerCompose": {
+                "up": {
+                    "detached": true,
+                    "build": true,
+                    "services": [
+                        "hrp"
+                    ],
+                    "customOptions": "--no-deps"
+                },
+                "files": [
+                    "${workspaceFolder}/.docker/compose.debug.yml"
+                ]
+            }
+        },
+        {
+            "label": "remove intermediate images",
             "type": "shell",
-            "label": "rebuild hrp service",
-            "command": "docker compose -f ./.docker/compose.yml up -d --no-deps --build hrp"
+            "command": "docker image prune -f"
         }
     ]
 }
