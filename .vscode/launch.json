@@ -2,18 +2,42 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Docker Attach",
-            "type": "docker",
-            "request": "attach",
-            "platform": "netCore",
-            "containerName": "hrp",
+            "name":"Dubug docker",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "Rebuild hrp service",
+            "postDebugTask": "remove intermediate images",
+            "cwd": "/app",
+            "program": "dotnet",
+            "args": [
+                "HRP.Host.dll"
+            ],
             "sourceFileMap": {
                 "/app": "${workspaceFolder}"
             },
-            "preLaunchTask": "rebuild hrp service",
-            "netCore": {
+            "pipeTransport": {
+                "pipeProgram": "docker",
+                "pipeCwd": "${workspaceFolder}",
+                "pipeArgs": [
+                    "compose -f ${workspaceFolder}/.docker/compose.debug.yml exec -i hrp"
+                ],
+                "quoteArgs": false,
                 "debuggerPath": "/remote_debugger/vsdbg"
             }
         }
+        // {
+        //     "name": "Docker Attach",
+        //     "type": "docker",
+        //     "request": "attach",
+        //     "platform": "netCore",
+        //     "containerName": "hrp",
+        //     "sourceFileMap": {
+        //         "/app": "${workspaceFolder}"
+        //     },
+        //     "preLaunchTask": "Rebuild hrp service",
+        //     "netCore": {
+        //         "debuggerPath": "/remote_debugger/vsdbg"
+        //     }
+        // }
     ]
 }

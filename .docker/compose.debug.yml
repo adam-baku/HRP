@@ -5,6 +5,7 @@ services:
     build:
       context: ../.
       dockerfile: ./.docker/Dockerfile
+    entrypoint: tail -f /dev/null
     ports:
       - "8080:8080"
     depends_on:

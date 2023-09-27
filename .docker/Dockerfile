@@ -29,4 +29,4 @@ COPY --from=build /app/build .
 COPY --from=build /remote_debugger /remote_debugger
 
 # run app
-ENTRYPOINT ["dotnet", "HRP.Host.dll"]
+# ENTRYPOINT ["dotnet", "HRP.Host.dll"]
