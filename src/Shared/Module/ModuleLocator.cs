@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace HRP.Shared;
+namespace HRP.Shared.Module;
 
 internal static class ModuleLocator
 {

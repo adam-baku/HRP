@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace HRP.Module.HumanResources.Infrastructure;
+namespace HRP.Module.HumanResources.Infrastructure.Database;
 
 public class EmployeeTypeConfiguration : IEntityTypeConfiguration<Employee>
 {

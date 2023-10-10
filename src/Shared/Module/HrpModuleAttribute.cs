@@ -1,4 +1,4 @@
-﻿namespace HRP.Shared;
+﻿namespace HRP.Shared.Module;
 
 [AttributeUsage(AttributeTargets.Assembly, AllowMultiple = false)]
 public class HrpModuleAttribute<TModule> : Attribute, IModuleCreator

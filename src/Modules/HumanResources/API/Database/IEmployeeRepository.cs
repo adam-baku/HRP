@@ -1,4 +1,6 @@
-﻿namespace HRP.Module.HumanResources.API;
+﻿using HRP.Module.HumanResources.API.Model;
+
+namespace HRP.Module.HumanResources.API.Database;
 
 public interface IEmployeeRepository
 {
