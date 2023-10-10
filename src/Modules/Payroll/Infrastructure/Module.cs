@@ -1,4 +1,4 @@
-﻿using HRP.Shared;
+﻿using HRP.Shared.Module;
 using Microsoft.AspNetCore.Builder;
 
 [assembly: HrpModule<HRP.Module.Payroll.Infrastructure.Module>]

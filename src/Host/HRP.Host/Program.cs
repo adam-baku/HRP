@@ -1,5 +1,5 @@
 using System.Text.Json.Serialization;
-using HRP.Shared;
+using HRP.Shared.Module;
 
 var builder = WebApplication.CreateBuilder(args);
 
