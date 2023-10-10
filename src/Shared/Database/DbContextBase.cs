@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-namespace HRP.Shared;
+namespace HRP.Shared.Database;
 
 public abstract class DbContextBase : DbContext
 {

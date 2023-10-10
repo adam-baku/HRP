@@ -1,5 +1,6 @@
 ﻿using HRP.Module.HumanResources.API;
-using HRP.Shared;
+using HRP.Shared.Module;
+using HRP.Shared.Event;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -18,5 +19,6 @@ public class Module : IModule
     {
         builder.Services.AddApplicationPart("HRP.Module.HumanResources.API");
         builder.Services.AddDbContext<IEmployeeRepository, HumanResourcesDbContext>();
+        builder.Services.AddScoped<IEventHandler<NewEmployeeAdded>, HandlerEmployee>();
     }
 }

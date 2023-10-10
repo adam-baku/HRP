@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using HRP.Module.HumanResources.API.Database;
+using HRP.Module.HumanResources.API.Model;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace HRP.Module.HumanResources.API;
+namespace HRP.Module.HumanResources.API.Controllers;
 
 [ApiController]
 [Route("/api/human-resources/[controller]")]
