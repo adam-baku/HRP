@@ -1,9 +1,9 @@
 ﻿using HRP.Module.HumanResources.API;
-using HRP.Shared;
+using HRP.Shared.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-namespace HRP.Module.HumanResources.Infrastructure;
+namespace HRP.Module.HumanResources.Infrastructure.Database;
 
 public class HumanResourcesDbContext : DbContextBase, IEmployeeRepository
 {

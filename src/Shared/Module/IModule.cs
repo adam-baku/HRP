@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 
-namespace HRP.Shared;
+namespace HRP.Shared.Module;
 
 public interface IModule
 {

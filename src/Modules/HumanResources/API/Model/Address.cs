@@ -1,4 +1,4 @@
-﻿namespace HRP.Module.HumanResources.API;
+﻿namespace HRP.Module.HumanResources.API.Model;
 
 public class Address
 {
