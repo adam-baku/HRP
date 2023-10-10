@@ -5,14 +5,8 @@ public class HrpModuleAttribute<TModule> : Attribute, IModuleCreator
     where TModule : IModule, new()
 {
     public TModule Instance => new();
-    public int Order { get; init; }
 
-    public HrpModuleAttribute() : this(0) {}
-
-    public HrpModuleAttribute(int order)
-    {
-        Order = order;
-    }
+    public HrpModuleAttribute() {}
 
     public IModule Create()
     {
@@ -23,6 +17,5 @@ public class HrpModuleAttribute<TModule> : Attribute, IModuleCreator
 
 public interface IModuleCreator
 {
-    int Order { init; get; }
     IModule Create();
 }
