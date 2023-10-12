@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Domain\HRP.Module.Payroll.Domain.csproj" />
     <ProjectReference Include="..\Shared\HRP.Module.Payroll.Shared.csproj" />
+    <ProjectReference Include="..\..\..\Shared\HRP.Shared.csproj" />
   </ItemGroup>
   
 </Project>
