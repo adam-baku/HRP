@@ -1,12 +1,29 @@
-﻿namespace HRP.Module.Payroll.Domain.Entity;
+﻿using System.Text.RegularExpressions;
+using HRP.Module.Payroll.Domain.Exception;
 
-public class Employee(int id, string bankAccount)
+namespace HRP.Module.Payroll.Domain.Entity;
+
+public class Employee
 {
-    public int Id { get; init; } = id;
-    public string BankAccount { get; private set; } = bankAccount;
+    public int Id { get; init; }
+    public string BankAccount { get; private set; }
 
+    public Employee(int id, string bankAccount)
+    {
+        //^(\d{26}|\d{2} (\d{4} ){5}\d{4})$
+
+        Id = id;
+        BankAccount = bankAccount;
+    }
+
+    /// <exception cref="InvalidBankAccountException" />
     public void ChangeBankAccount(string newBankAccount)
     {
+        if (!Regex.IsMatch(newBankAccount, @"^(\d{26}|\d{2} (\d{4} ){5}\d{4})$"))
+        {
+            throw InvalidBankAccountException.Default(newBankAccount);
+        }
+
         BankAccount = newBankAccount;
     }
 }

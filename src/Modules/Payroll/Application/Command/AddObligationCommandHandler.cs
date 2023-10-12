@@ -9,6 +9,7 @@ public class AddObligationCommandHandler(IObligationRepository obligationReposit
 {
     /// <exception cref="EmployeeNotExistsException" />
     /// <exception cref="IncorrectAmountException" />
+    /// <exception cref="InvalidBankAccountException" />
     public async Task HandleAsync(AddObligationCommand command)
     {
         if (!await employeeRepository.ExistsAsync(command.EmployeeId))
