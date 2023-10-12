@@ -11,18 +11,16 @@ internal static class ModuleLoader
 
     internal static ImmutableList<IModule> LocateModules()
     {
-        var modulesTmp = new Dictionary<int, IModule>();
+        var modulesTmp = new List<IModule>();
 
         foreach (var moduleAssembly in ModuleLocator.FindModules())
         {
             if (moduleAssembly.GetCustomAttribute(typeof(HrpModuleAttribute<>)) is IModuleCreator attribute) {
-                modulesTmp.Add(attribute.Order, attribute.Create());
+                modulesTmp.Add(attribute.Create());
             }
         }
 
-        modules = modulesTmp.OrderBy(x => x.Key)
-            .Select(x => x.Value)
-            .ToImmutableList();
+        modules = [.. modulesTmp];
 
         return modules;
     }
