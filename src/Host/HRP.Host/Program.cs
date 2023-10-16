@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using HRP.Shared.Module;
+using HRP.Shared.Event;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,7 @@ builder.Services.AddControllers()
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.RegisterEventBus();
 builder.RegisterModules();
 
 var app = builder.Build();
