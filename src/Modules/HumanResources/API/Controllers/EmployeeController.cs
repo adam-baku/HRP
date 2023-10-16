@@ -1,5 +1,7 @@
 ﻿using HRP.Module.HumanResources.API.Database;
+using HRP.Module.HumanResources.API.Event;
 using HRP.Module.HumanResources.API.Model;
+using HRP.Shared.Event;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,10 +12,12 @@ namespace HRP.Module.HumanResources.API.Controllers;
 public class EmployeeController : ControllerBase
 {
     private readonly IEmployeeRepository repository;
+    private readonly IEventPublisher eventPublisher;
 
-    public EmployeeController(IEmployeeRepository repository)
+    public EmployeeController(IEmployeeRepository repository, IEventPublisher eventPublisher)
     {
         this.repository = repository;
+        this.eventPublisher = eventPublisher;
     }
 
     [HttpGet]
@@ -42,6 +46,8 @@ public class EmployeeController : ControllerBase
     public async Task<ActionResult<Employee>> CreateAsync(Employee employee)
     {
         await repository.AddAsync(employee);
+
+        await eventPublisher.PublishAsync(new NewEmployeeAdded(employee.Id));
 
         return StatusCode(StatusCodes.Status201Created, employee);
     }

@@ -1,4 +1,5 @@
-﻿using HRP.Module.HumanResources.API;
+﻿using HRP.Module.HumanResources.API.Database;
+using HRP.Module.HumanResources.API.Model;
 using HRP.Shared.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;

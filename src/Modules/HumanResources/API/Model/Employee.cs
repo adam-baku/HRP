@@ -1,4 +1,6 @@
-﻿namespace HRP.Module.HumanResources.API.Model;
+﻿using HRP.Shared.Model;
+
+namespace HRP.Module.HumanResources.API.Model;
 
 public class Employee
 {
