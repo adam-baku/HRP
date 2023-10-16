@@ -1,4 +1,4 @@
-﻿namespace HRP.Module.HumanResources.API.Model;
+﻿namespace HRP.Shared.Model;
 
 public enum EmploymentForm
 {
