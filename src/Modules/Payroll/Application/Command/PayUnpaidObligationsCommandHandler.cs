@@ -15,7 +15,7 @@ public class PayUnpaidObligationsCommandHandler(IObligationRepository obligation
         {
             var payment = obligationToPay.Pay();
 
-            await bankProvider.Transfer(payment);
+            await bankProvider.TransferAsync(payment);
 
             payment.MarkAsPaid();
 
@@ -25,7 +25,7 @@ public class PayUnpaidObligationsCommandHandler(IObligationRepository obligation
             }
             catch
             {
-                await bankProvider.Cancel(payment);
+                await bankProvider.CancelAsync(payment);
                 throw;
             }
         }
