@@ -5,8 +5,8 @@ namespace HRP.Module.Payroll.Application.Command;
 
 public struct AddObligationCommand(int employeeId, string bankAccount, decimal amount, Currency currency) : ICommand
 {
-    public int EmployeeId => employeeId;
-    public string BankAccount => bankAccount;
-    public decimal Amount => amount;
-    public Currency Currency => currency;
+    public readonly int EmployeeId => employeeId;
+    public readonly string BankAccount => bankAccount;
+    public readonly decimal Amount => amount;
+    public readonly Currency Currency => currency;
 }
