@@ -4,6 +4,6 @@ namespace HRP.Module.Payroll.Domain.Service;
 
 public interface IBankProvider
 {
-    Task Transfer(Payment payment);
-    Task Cancel(Payment payment);
+    Task TransferAsync(Payment payment);
+    Task CancelAsync(Payment payment);
 }
