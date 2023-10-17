@@ -1,5 +1,9 @@
-﻿using HRP.Shared.Module;
+﻿using HRP.Module.Payroll.Application.Command;
+using HRP.Module.Payroll.Domain.Service;
+using HRP.Shared.Command;
+using HRP.Shared.Module;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 
 [assembly: HrpModule<HRP.Module.Payroll.Infrastructure.Module>]
 
@@ -14,6 +18,7 @@ public class Module : IModule
 
     public void Register(WebApplicationBuilder builder)
     {
-        //do nothing
+        builder.Services.AddScoped<SalaryService>();
+        builder.Services.AddScoped<ICommandHandler<AddObligationCommand>, AddObligationCommandHandler>();
     }
 }
