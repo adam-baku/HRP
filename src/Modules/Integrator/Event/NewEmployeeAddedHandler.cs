@@ -1,4 +1,5 @@
 ﻿using HRP.Module.HumanResources.API.Controllers;
+using HRP.Module.HumanResources.API.Database;
 using HRP.Module.HumanResources.API.Event;
 using HRP.Module.Payroll.Application.Command;
 using HRP.Module.Payroll.Domain.Service;
@@ -10,19 +11,19 @@ namespace HRP.Module.Integrator.Event;
 public class NewEmployeeAddedHandler : IEventHandler<NewEmployeeAdded>
 {
     private readonly ICommandHandler<AddObligationCommand> addObligationCommandHandler;
-    private readonly EmployeeController employeeController;
+    private readonly IEmployeeRepository employeeRepository;
     private readonly SalaryService salaryService;
 
-    public NewEmployeeAddedHandler(ICommandHandler<AddObligationCommand> addObligationCommandHandler, EmployeeController employeeController, SalaryService salaryService)
+    public NewEmployeeAddedHandler(ICommandHandler<AddObligationCommand> addObligationCommandHandler, IEmployeeRepository employeeRepository, SalaryService salaryService)
     {
         this.addObligationCommandHandler = addObligationCommandHandler;
-        this.employeeController = employeeController;
+        this.employeeRepository = employeeRepository;
         this.salaryService = salaryService;
     }
 
     public async Task HandleAsync(NewEmployeeAdded @event)
     {
-        var employee = (await employeeController.GetByIdAsync(@event.Id)).Value;
+        var employee = await employeeRepository.GetByIdAsync(@event.Id);
 
         var salary = salaryService.CalculateSalaryFor(employee!.Department, employee!.OptionOfEmployment, employee!.FormOfEmployment);
 

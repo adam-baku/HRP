@@ -1,6 +1,6 @@
 ﻿namespace HRP.Module.Payroll.Application.Query;
 
-public struct PaymentFilter
+public record struct PaymentFilter(DateOnly? PaidAt, string? BankAccount)
 {
 
 }
