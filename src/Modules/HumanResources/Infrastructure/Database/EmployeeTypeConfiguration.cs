@@ -1,4 +1,4 @@
-﻿using HRP.Module.HumanResources.API;
+﻿using HRP.Module.HumanResources.API.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
