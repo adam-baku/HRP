@@ -31,7 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Police\" />
     <Folder Include="Service\" />
   </ItemGroup>
 
