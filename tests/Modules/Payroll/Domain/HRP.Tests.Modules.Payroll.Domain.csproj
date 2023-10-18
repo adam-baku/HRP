@@ -30,8 +30,4 @@
     <ProjectReference Include="..\..\..\..\src\Modules\Payroll\Domain\HRP.Module.Payroll.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Service\" />
-  </ItemGroup>
-
 </Project>
