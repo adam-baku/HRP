@@ -17,6 +17,6 @@ public class Amount
         }
 
         Value = value;
-        Currency = Currency;
+        Currency = currency;
     }
 }
