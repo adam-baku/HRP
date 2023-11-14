@@ -1,9 +1,9 @@
 ﻿using HRP.Module.Payroll.Domain.Entity;
 using HRP.Shared.Model;
 
-namespace HRP.Module.Payroll.Domain.Police;
+namespace HRP.Module.Payroll.Domain.Policy;
 
-public interface ISalaryPolice
+public interface ISalaryPolicy
 {
     Amount CalculateSalary(EmploymentForm employmentForm);
 }
