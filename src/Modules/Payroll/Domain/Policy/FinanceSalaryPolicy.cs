@@ -2,9 +2,9 @@
 using HRP.Module.Payroll.Shared;
 using HRP.Shared.Model;
 
-namespace HRP.Module.Payroll.Domain.Police;
+namespace HRP.Module.Payroll.Domain.Policy;
 
-public class FinanceSalaryPolice : ISalaryPolice
+public class FinanceSalaryPolicy : ISalaryPolicy
 {
     public Amount CalculateSalary(EmploymentForm employmentForm) => employmentForm switch
     {

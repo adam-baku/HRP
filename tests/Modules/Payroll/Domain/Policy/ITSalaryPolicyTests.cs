@@ -1,20 +1,20 @@
-﻿using HRP.Module.Payroll.Domain.Police;
+﻿using HRP.Module.Payroll.Domain.policy;
 using HRP.Module.Payroll.Shared;
 using HRP.Shared.Model;
 
 namespace HRP.Tests.Modules.Payroll.Domain;
 
-public class ITSalaryPoliceTests
+public class ITSalarypolicyTests
 {
     [Theory]
     [MemberData(nameof(DataProvider))]
     public void ShouldCalculateSalaryCorrectly(EmploymentForm givenEmploymentForm, decimal expectedAmount, Currency expectedCurrency)
     {
         //given
-        var police = new ITSalaryPolice();
+        var policypolicy = new ITSalarypolicy();
 
         //when
-        var result = police.CalculateSalary(givenEmploymentForm);
+        var result = policypolicy.CalculateSalary(givenEmploymentForm);
 
         //then
         Assert.Equal(expectedAmount, result.Value);

@@ -1,5 +1,5 @@
 ﻿using HRP.Module.Payroll.Domain.Entity;
-using HRP.Module.Payroll.Domain.Police;
+using HRP.Module.Payroll.Domain.Policy;
 using HRP.Shared.Model;
 
 namespace HRP.Module.Payroll.Domain.Service;
@@ -8,19 +8,19 @@ public class SalaryService
 {
     public Amount CalculateSalaryFor(Department department, EmploymentOption employmentOption, EmploymentForm employmentForm)
     {
-        ISalaryPolice salaryPolice = department switch
+        ISalaryPolicy salaryPolicy = department switch
         {
-            Department.HR => new HRSalaryPolice(),
-            Department.IT => new ITSalaryPolice(),
-            Department.Finance => new FinanceSalaryPolice(),
-            Department.Sales => new SalesSalaryPolice()
+            Department.HR => new HRSalaryPolicy(),
+            Department.IT => new ITSalaryPolicy(),
+            Department.Finance => new FinanceSalaryPolicy(),
+            Department.Sales => new SalesSalaryPolicy()
         };
 
         if (employmentOption is EmploymentOption.HalfTime)
         {
-            salaryPolice = new HalfTimeSalaryPolice(salaryPolice);
+            salaryPolicy = new HalfTimeSalaryPolicy(salaryPolicy);
         }
 
-        return salaryPolice.CalculateSalary(employmentForm);
+        return salaryPolicy.CalculateSalary(employmentForm);
     }
 }

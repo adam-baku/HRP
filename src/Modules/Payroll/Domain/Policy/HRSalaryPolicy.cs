@@ -2,9 +2,9 @@
 using HRP.Module.Payroll.Shared;
 using HRP.Shared.Model;
 
-namespace HRP.Module.Payroll.Domain.Police;
+namespace HRP.Module.Payroll.Domain.Policy;
 
-public class HRSalaryPolice : ISalaryPolice
+public class HRSalaryPolicy : ISalaryPolicy
 {
     private const decimal baseSalary = 1234.50m;
     public Amount CalculateSalary(EmploymentForm employmentForm) => employmentForm switch
